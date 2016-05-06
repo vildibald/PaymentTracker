@@ -15,12 +15,14 @@ public class OutputService implements Runnable {
 
         Map<String, BigDecimal> payments = Payments.getInstance().getPayments();
 
-        if (payments == null) {
+        if (payments.isEmpty()) {
             System.out.println("There are not any payment records");
         } else {
-            System.out.println("Current payment records");
+            System.out.println("Current payment records :");
             for (Map.Entry<String, BigDecimal> entry : payments.entrySet()) {
-                System.out.println(entry.getKey() + "  " + entry.getValue());
+                if (!entry.getValue().equals(BigDecimal.ZERO)) {
+                    System.out.println(entry.getKey() + " " + entry.getValue());
+                }
             }
         }
     }

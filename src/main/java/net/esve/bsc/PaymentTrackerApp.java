@@ -1,19 +1,17 @@
 package net.esve.bsc;
 
-import net.esve.bsc.model.Payment;
-import net.esve.bsc.model.Payments;
 import net.esve.bsc.services.FileReadWriteService;
+import net.esve.bsc.services.InputService;
 import net.esve.bsc.services.OutputService;
+import net.esve.bsc.services.PaymentsService;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledFuture;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
-import static net.esve.bsc.services.PaymentTrackerService.processLine;
 
 
 /**
@@ -26,29 +24,42 @@ public class PaymentTrackerApp {
      */
     public static void main(String[] args) {
 
+
         List<String> fileLines = null;
-        List<Payment> payments = Collections.emptyList();
+        FileReadWriteService fileService = new FileReadWriteService();
 
         List<String> arrArgs = Arrays.asList(args);
         if (arrArgs.size() == 1) {
-            String fileName = args[0];
-            FileReadWriteService fileOperation = new FileReadWriteService(args[0]);
-            fileLines = fileOperation.readFileLines();
+            String path = args[0];
+            fileLines = fileService.readFileLines(path);
+        } else {
+            System.out.println("Please type the path of payments filename and press ENTER");
+            Scanner in = new Scanner(System.in);
+
+            do {
+                String s = in.nextLine();
+                if (s.equals("")) {
+                    System.out.println("We are continuing without payments file ...");
+                    break;
+                } else {
+                    fileLines = fileService.readFileLines(s);
+                    break;
+                }
+            } while (true);
+
         }
 
         if (fileLines != null && !fileLines.isEmpty()) {
             for (String line : fileLines) {
-                Payment payment = processLine(line);
-                Payments.getInstance().processPayment(payment);
+                PaymentsService.createRecord(line);
             }
         }
 
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
-        final ScheduledFuture<?> printer = scheduler.scheduleAtFixedRate(
-                new OutputService(), 1, 60, SECONDS);
+        scheduler.scheduleAtFixedRate(new OutputService(), 60, 60, SECONDS);
+
+        InputService inputService = new InputService();
+        inputService.run();
 
     }
-
-    //call others
-
 }
