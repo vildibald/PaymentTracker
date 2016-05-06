@@ -1,7 +1,6 @@
 package net.esve.bsc.services;
 
 import net.esve.bsc.model.Payment;
-import net.esve.bsc.util.FileReadWriteOperation;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,7 +14,7 @@ import static net.esve.bsc.services.PaymentTrackerService.readConsoleLine;
  */
 public class InputService extends Thread {
 
-    private FileReadWriteOperation fileOperation;
+    private FileReadWriteService fileOperation;
     private Payment payment;
     private String line;
 

@@ -1,4 +1,4 @@
-package net.esve.bsc.util;
+package net.esve.bsc.services;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -11,11 +11,11 @@ import java.util.List;
 /**
  * Created by Viliam on 05-May-16.
  */
-public class FileReadWriteOperation {
+public class FileReadWriteService {
 
     private static Path filePath;
 
-    public FileReadWriteOperation(String filename) {
+    public FileReadWriteService(String filename) {
         filePath = FileSystems.getDefault().getPath(".", filename);
     }
 

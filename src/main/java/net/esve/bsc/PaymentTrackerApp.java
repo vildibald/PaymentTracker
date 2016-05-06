@@ -2,8 +2,8 @@ package net.esve.bsc;
 
 import net.esve.bsc.model.Payment;
 import net.esve.bsc.model.Payments;
+import net.esve.bsc.services.FileReadWriteService;
 import net.esve.bsc.services.OutputService;
-import net.esve.bsc.util.FileReadWriteOperation;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -32,7 +32,7 @@ public class PaymentTrackerApp {
         List<String> arrArgs = Arrays.asList(args);
         if (arrArgs.size() == 1) {
             String fileName = args[0];
-            FileReadWriteOperation fileOperation = new FileReadWriteOperation(args[0]);
+            FileReadWriteService fileOperation = new FileReadWriteService(args[0]);
             fileLines = fileOperation.readFileLines();
         }
 
