@@ -15,19 +15,15 @@ public class FileReadWriteOperation {
 
     private static Path filePath;
 
-    FileReadWriteOperation(String path) {
-        filePath = FileSystems.getDefault().getPath(".", path);
+    public FileReadWriteOperation(String filename) {
+        filePath = FileSystems.getDefault().getPath(".", filename);
     }
 
     public Path getFilePath() {
         return filePath;
     }
 
-    public void setFilePath(Path path) {
-        filePath = path;
-    }
-
-    public static List<String> readFileLines(String name) {
+    public List<String> readFileLines() {
         try {
             return Files.readAllLines(filePath, Charset.defaultCharset());
         } catch (IOException ioe) {
