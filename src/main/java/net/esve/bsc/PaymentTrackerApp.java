@@ -22,8 +22,8 @@ public class PaymentTrackerApp {
     /**
      * @param args application args
      */
-    public static void main(String[] args) {
-
+    @SuppressWarnings("resource")
+	public static void main(String[] args) {
 
         List<String> fileLines = null;
         FileReadWriteService fileService = new FileReadWriteService();
@@ -34,10 +34,10 @@ public class PaymentTrackerApp {
             fileLines = fileService.readFileLines(path);
         } else {
             System.out.println("Please type the path of payments filename and press ENTER");
-            Scanner in = new Scanner(System.in);
+            Scanner scanner = new Scanner(System.in);
 
             do {
-                String s = in.nextLine();
+                String s = scanner.nextLine();
                 if (s.equals("")) {
                     System.out.println("We are continuing without payments file ...");
                     break;
@@ -59,7 +59,7 @@ public class PaymentTrackerApp {
         scheduler.scheduleAtFixedRate(new OutputService(), 60, 60, SECONDS);
 
         InputService inputService = new InputService();
-        inputService.run();
+        inputService.start();
 
     }
 }

@@ -9,10 +9,17 @@ import java.util.List;
 
 /**
  * Created by Viliam on 05-May-16.
+ * @author Mamak
+ * @version $Revision: 1.0 $
  */
 
 public class FileReadWriteService {
 
+    /**
+     * Method readFileLines.
+     * @param path String
+     * @return List<String>
+     */
     public List<String> readFileLines(String path) {
         Path filePath = FileSystems.getDefault().getPath(path);
         try {

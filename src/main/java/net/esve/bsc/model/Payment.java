@@ -7,30 +7,61 @@ import java.math.BigDecimal;
  */
 public class Payment {
 
+    /**
+     * Field currency.
+     */
     private String currency;
+    /**
+     * Field amount.
+     */
     private BigDecimal amount;
 
+    /**
+     * Method getCurrency.
+     * @return String
+     */
     public String getCurrency() {
         return currency;
     }
 
+    /**
+     * Method setCurrency.
+     * @param currency String
+     */
     public void setCurrency(String currency) {
         this.currency = currency;
     }
 
+    /**
+     * Method getAmount.
+     * @return BigDecimal
+     */
     public BigDecimal getAmount() {
         return amount;
     }
 
+    /**
+     * Method setAmount.
+     * @param amount BigDecimal
+     */
     public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 
+    /**
+     * Method toString.
+     * @return String
+     */
     @Override
     public String toString() {
         return String.format("%s %s", this.currency, this.amount.toString());
     }
 
+    /**
+     * Method equals.
+     * @param obj Object
+     * @return boolean
+     */
     @Override
     public boolean equals(Object obj) {
         if (obj == this) {
@@ -48,6 +79,10 @@ public class Payment {
 
     }
 
+    /**
+     * Method hashCode.
+     * @return int
+     */
     @Override
     public int hashCode() {
         final int prime = 31;

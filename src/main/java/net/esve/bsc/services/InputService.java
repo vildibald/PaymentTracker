@@ -6,9 +6,15 @@ import java.io.InputStreamReader;
 
 /**
  * Created by Viliam on 06-May-16.
+ * @author Mamak
+ * @version $Revision: 1.0 $
  */
 public class InputService extends Thread {
 
+    /**
+     * Method readConsoleLine.
+     * @return String
+     */
     private static String readConsoleLine() {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         try {
@@ -19,6 +25,10 @@ public class InputService extends Thread {
         return null;
     }
 
+    /**
+     * Method run.
+     * @see java.lang.Runnable#run()
+     */
     public void run() {
         while (true) {
                 String line = readConsoleLine();

@@ -1,19 +1,25 @@
 package net.esve.bsc.services;
 
-import net.esve.bsc.model.Payments;
+import net.esve.bsc.model.PaymentRecords;
 
 import java.math.BigDecimal;
 import java.util.Map;
 
 /**
  * Created by Viliam on 06-May-16.
+ * @author Mamak
+ * @version $Revision: 1.0 $
  */
 public class OutputService implements Runnable {
 
+    /**
+     * Method run.
+     * @see java.lang.Runnable#run()
+     */
     @Override
     public void run() {
 
-        Map<String, BigDecimal> payments = Payments.getInstance().getPayments();
+        Map<String, BigDecimal> payments = PaymentRecords.getInstance().getPayments();
 
         if (payments.isEmpty()) {
             System.out.println("There are not any payment records");
