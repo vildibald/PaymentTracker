@@ -59,7 +59,8 @@ public class PaymentTrackerApp {
         scheduler.scheduleAtFixedRate(new OutputService(), 60, 60, SECONDS);
 
         InputService inputService = new InputService();
-        inputService.start();
+        Thread inputServiceBackgroundThread = new Thread(inputService);
+        inputServiceBackgroundThread.start();
 
     }
 }

@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
  * @author Mamak
  * @version $Revision: 1.0 $
  */
-public class InputService extends Thread {
+public class InputService implements Runnable {
 
     /**
      * Method readConsoleLine.
@@ -29,6 +29,7 @@ public class InputService extends Thread {
      * Method run.
      * @see java.lang.Runnable#run()
      */
+    @Override
     public void run() {
         while (true) {
                 String line = readConsoleLine();
