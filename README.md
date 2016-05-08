@@ -23,9 +23,13 @@ paymentTracker
 Reading from any payments-file containing data structure like:
 
 USD 1000
+
 HKD 100
+
 USD -100
+
 RMB 2000
+
 HKD 200
 
 
