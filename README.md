@@ -1,14 +1,14 @@
 # PaymentTracker
 
-Build
+<b>Build<b>
 
 Apache Maven: 3.X.X
 
 Java: 1.7
 
-Go to project folder and build with "mvn clean install" or open in. Output will be in target folder.
+Go to project folder and build with "mvn clean install" or open in. 
 
-Run
+<b>Run</b>
 
 java -jar payment-tracker-1.0-SNAPSHOT.jar 
 
@@ -36,5 +36,5 @@ HKD 200
 
 "quit" command shut downs the application
 
-NOTE: Tested on OS Windows ONLY.
+<b>NOTE: Tested on OS Windows ONLY.</b>
 
