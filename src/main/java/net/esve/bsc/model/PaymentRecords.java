@@ -41,11 +41,11 @@ public class PaymentRecords {
     }
 
     /**
-     * Method setPayments.
+     * Method putPayment.
      *
      * @param payment Payment
      */
-    public void setPayments(Payment payment) {
+    public void putPayment(Payment payment) {
         synchronized (lock) {
             if (!payments.containsKey(payment.getCurrency())) {
                 payments.put(payment.getCurrency(), payment.getAmount());

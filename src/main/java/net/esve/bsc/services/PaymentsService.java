@@ -30,7 +30,7 @@ public class PaymentsService {
             String currency = parseCurrency(matcher.group());
             BigDecimal amount = parseAmount(matcher.group());
             Payment payment = new Payment(currency,amount);
-            PaymentRecords.getInstance().setPayments(payment);
+            PaymentRecords.getInstance().putPayment(payment);
             System.out.println("Payment has been created");
         } else {
             System.err.println(String.format("Payment '%s' was in incorrect format!", str));
