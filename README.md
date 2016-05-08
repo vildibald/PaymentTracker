@@ -1,6 +1,6 @@
 # PaymentTracker
 
-<b>Build<b>
+<b>Build</b>
 
 Apache Maven: 3.X.X
 
