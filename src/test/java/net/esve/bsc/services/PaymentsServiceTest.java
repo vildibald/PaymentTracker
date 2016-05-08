@@ -19,21 +19,19 @@ import org.junit.Test;
 import net.esve.bsc.model.Payment;
 
 /**
- * @author Mamak
+ * @author Viliam
  *
  */
 public class PaymentsServiceTest {
 	
 	private static final List<String> lines =  Arrays.asList("USD 100", "CZK 1000", "EUR 10000", "HUF 0");
-	private static PaymentsService paymentsService;
-
 	/**
 	 * Test method for {@link net.esve.bsc.services.PaymentsService#createRecord(java.lang.String)}.
 	 */
 	@Test
 	public void testCreateRecord() {
 		for (String line : lines) {
-			paymentsService.createRecord(line);;
+			PaymentsService.createRecord(line);;
         }
 		
 	}

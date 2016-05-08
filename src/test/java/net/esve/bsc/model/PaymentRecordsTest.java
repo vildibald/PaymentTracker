@@ -8,23 +8,15 @@ import static org.hamcrest.CoreMatchers.is;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Arrays;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.FixMethodOrder;
-import org.junit.Test;
-import org.junit.runners.MethodSorters;
-
-import net.esve.bsc.services.PaymentsService;
 
 import org.junit.BeforeClass;
+
 import org.junit.Test;
+
 
 /**
  * @author Viliam
@@ -74,7 +66,7 @@ public class PaymentRecordsTest {
 	 */
 	@Test
 	public void testGetInstance() {
-		setPaymentRecords();
+		this.setPaymentRecords();
 		assertThat(PaymentRecords.getInstance().getPayments(), is(paymentRecords));
 	}
 	

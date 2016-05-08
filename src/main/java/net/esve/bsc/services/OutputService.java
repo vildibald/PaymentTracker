@@ -27,7 +27,12 @@ public class OutputService implements Runnable {
             System.out.println("Current payment records :");
             for (Map.Entry<String, BigDecimal> entry : payments.entrySet()) {
                 if (!entry.getValue().equals(BigDecimal.ZERO)) {
-                    System.out.println(entry.getKey() + " " + entry.getValue());
+                   BigDecimal rateAmount = ExchangeService.getRate(entry);
+                  if (rateAmount.equals(BigDecimal.ZERO)) { 
+                      System.out.println(entry.getKey() + " " + entry.getValue() );
+                  } else {
+                	  System.out.println(entry.getKey() + " " + entry.getValue() + "("+String.valueOf(rateAmount)+")" );
+                  }
                 }
             }
         }

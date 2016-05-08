@@ -56,7 +56,7 @@ public class PaymentTrackerApp {
         }
 
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
-        scheduler.scheduleAtFixedRate(new OutputService(), 60, 60, SECONDS);
+        scheduler.scheduleAtFixedRate(new OutputService(), 1, 10, SECONDS);
 
         InputService inputService = new InputService();
         Thread inputServiceBackgroundThread = new Thread(inputService);

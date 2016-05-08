@@ -22,7 +22,7 @@ public class Payment {
     	this.amount = amount;
 	}
 
-	/**
+    /**
      * Method getCurrency.
      * @return String
      */
