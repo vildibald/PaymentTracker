@@ -30,13 +30,6 @@ public class Payment {
         return currency;
     }
 
-    /**
-     * Method setCurrency.
-     * @param currency String
-     */
-    public void setCurrency(String currency) {
-        this.currency = currency;
-    }
 
     /**
      * Method getAmount.
@@ -45,15 +38,7 @@ public class Payment {
     public BigDecimal getAmount() {
         return amount;
     }
-
-    /**
-     * Method setAmount.
-     * @param amount BigDecimal
-     */
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
-    }
-
+    
     /**
      * Method toString.
      * @return String
