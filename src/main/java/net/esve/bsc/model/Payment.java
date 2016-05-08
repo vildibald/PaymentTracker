@@ -1,6 +1,7 @@
 package net.esve.bsc.model;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 /**
  * Created by Viliam on 05-May-16.
@@ -16,7 +17,12 @@ public class Payment {
      */
     private BigDecimal amount;
 
-    /**
+    public Payment(String currency, BigDecimal amount) {
+    	this.currency = currency;
+    	this.amount = amount;
+	}
+
+	/**
      * Method getCurrency.
      * @return String
      */
@@ -70,13 +76,11 @@ public class Payment {
         if (obj == null || obj.getClass() != this.getClass()) {
             return false;
         }
-
+        
         Payment payment = (Payment) obj;
-
-        return amount == payment.amount
-                && (currency == payment.currency
+        return Objects.equals(amount, payment.amount)
+                && (Objects.equals(currency, payment.currency)
                 || (currency != null && currency.equals(payment.getCurrency())));
-
     }
 
     /**

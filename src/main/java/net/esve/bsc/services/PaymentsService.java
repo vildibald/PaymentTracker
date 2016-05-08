@@ -29,9 +29,7 @@ public class PaymentsService {
         if (matcher.find()) {
             String currency = parseCurrency(matcher.group());
             BigDecimal amount = parseAmount(matcher.group());
-            Payment payment = new Payment();
-            payment.setCurrency(currency);
-            payment.setAmount(amount);
+            Payment payment = new Payment(currency,amount);
             PaymentRecords.getInstance().setPayments(payment);
             System.out.println("Payment has been created");
         } else {

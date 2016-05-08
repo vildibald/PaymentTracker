@@ -31,15 +31,4 @@ public class FileReadWriteService {
         return null;
     }
 
-    /*void writeFileBytes(String filename, String content) {
-        try {
-          Files.write(FileSystems.getDefault().getPath(filename),
-                    content.getBytes(),
-                    StandardOpenOption.CREATE);
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
-        }
-    }
-    */
-
 }
