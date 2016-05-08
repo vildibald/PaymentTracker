@@ -36,5 +36,17 @@ HKD 200
 
 "quit" command shut downs the application
 
+RATE is applied if there is defined CURRENCY in ExchangeService
+
+<b>OUTPUT:</b>
+
+USD 900
+
+RMB 2000 (USD 314.60)
+
+HKD 300 (USD 38.62)
+
+
+
 <b>NOTE: Tested on OS Windows ONLY.</b>
 
