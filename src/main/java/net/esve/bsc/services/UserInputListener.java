@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
  * @author Mamak
  * @version $Revision: 1.0 $
  */
-public class InputService implements Runnable {
+public class UserInputListener implements Runnable {
 
     /**
      * Method readConsoleLine.

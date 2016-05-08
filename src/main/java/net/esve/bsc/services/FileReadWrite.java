@@ -13,7 +13,7 @@ import java.util.List;
  * @version $Revision: 1.0 $
  */
 
-public class FileReadWriteService {
+public class FileReadWrite {
 
     /**
      * Method readFileLines.

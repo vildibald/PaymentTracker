@@ -1,9 +1,9 @@
 package net.esve.bsc;
 
-import net.esve.bsc.services.FileReadWriteService;
-import net.esve.bsc.services.InputService;
+import net.esve.bsc.services.FileReadWrite;
 import net.esve.bsc.services.OutputService;
 import net.esve.bsc.services.PaymentsService;
+import net.esve.bsc.services.UserInputListener;
 
 import java.util.Arrays;
 import java.util.List;
@@ -26,7 +26,7 @@ public class PaymentTrackerApp {
 	public static void main(String[] args) {
 
         List<String> fileLines = null;
-        FileReadWriteService fileService = new FileReadWriteService();
+        FileReadWrite fileService = new FileReadWrite();
 
         List<String> arrArgs = Arrays.asList(args);
         if (arrArgs.size() == 1) {
@@ -58,7 +58,7 @@ public class PaymentTrackerApp {
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
         scheduler.scheduleAtFixedRate(new OutputService(), 1, 10, SECONDS);
 
-        InputService inputService = new InputService();
+        UserInputListener inputService = new UserInputListener();
         Thread inputServiceBackgroundThread = new Thread(inputService);
         inputServiceBackgroundThread.start();
 
