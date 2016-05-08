@@ -17,6 +17,11 @@ public class Payment {
      */
     private BigDecimal amount;
 
+    public Payment(String currency, BigDecimal amount) {
+        this.currency = currency;
+        this.amount = amount;
+    }
+
     /**
      * Method getCurrency.
      * @return String
@@ -26,27 +31,11 @@ public class Payment {
     }
 
     /**
-     * Method setCurrency.
-     * @param currency String
-     */
-    public void setCurrency(String currency) {
-        this.currency = currency;
-    }
-
-    /**
      * Method getAmount.
      * @return BigDecimal
      */
     public BigDecimal getAmount() {
         return amount;
-    }
-
-    /**
-     * Method setAmount.
-     * @param amount BigDecimal
-     */
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
     }
 
     /**
@@ -71,7 +60,7 @@ public class Payment {
         if (obj == null || obj.getClass() != this.getClass()) {
             return false;
         }
-        
+
         Payment payment = (Payment) obj;
         return Objects.equals(amount, payment.amount)
                 && (Objects.equals(currency, payment.currency)
